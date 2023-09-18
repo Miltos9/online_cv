@@ -54,7 +54,6 @@ career-profile:
       as a programmer and progress within this field. This involves not only 
       mastering new programming languages but also acquiring the essential 
       experience necessary for professional growth.
-      
 education:
     title: Education
     info:
@@ -62,7 +61,6 @@ education:
         university: Ionian University, Department of Computer Science.
         time:  - 2024
         details: |
-          
           Upon the completion of your studies and the acquisition of a degree 
           from the Department of Computer Science, a wide array of professional 
           opportunities opens up before you. You have the potential to work in  
@@ -78,9 +76,9 @@ education:
           networking, organizational, and technical services to any public or  
           private entity in various sectors (e.g., medical, pharmaceutical,  
           insurance, media, transportation, shipping, tourism, etc.).
-          
+            - Bullet point
+            - Bullet point
         
-      
 experiences:
     title: Experiences
     info:
