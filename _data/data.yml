@@ -16,10 +16,10 @@ sidebar:
     email: giorgosmiltos@gmail.com
     phone: 6983802783
     citizenship:
-    website: blog.webjeda.com #do not add http://
-    linkedin: Georgios Miltos
+    website:
+    linkedin: https://www.linkedin.com/in/georgios-miltos-0278b8287/
     github: Miltos9
-    telegram: # add your nickname without '@' sign
+    telegram: Georgios Miltos
     bitbucket:
     twitter: 
     stack-overflow: # Number/Username, e.g. 123456/alandoe
@@ -237,22 +237,19 @@ skills:
 
     toolset:
       - name: Python & Django
-        level: 98%
+        level: 60%
 
       - name: Javascript & jQuery
-        level: 98%
-
-      - name: Angular
-        level: 98%
+        level: 50%
 
       - name: HTML5 & CSS
-        level: 95%
+        level: 50%
 
       - name: Ruby on Rails
-        level: 85%
+        level: 50%
 
       - name: Sketch & Photoshop
-        level: 60%
+        level: 70%
 
 footer: >
     Designed with <i class="fas fa-heart"></i> by <a href="http://themes.3rdwavemedia.com" target="_blank" rel="nofollow">Xiaoying Riley</a>
