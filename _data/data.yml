@@ -17,7 +17,7 @@ sidebar:
     phone: 6983802783
     citizenship:
     website:
-    linkedin: https://www.linkedin.com/in/georgios-miltos/
+    linkedin: https://www.linkedin.com/in/georgios-miltos-0278b8287/
     github: Miltos9
     telegram: Georgios Miltos
     bitbucket:
@@ -62,9 +62,9 @@ career-profile:
 education:
     title: Education
     info:
-      - degree: BSc in Computer Science
-        university: Ionian University
-        time: - 2024
+      - degree: MSc in Computer Science
+        university: University of London
+        time: 2011 - 2012
         details: |
           Describe your study here lorem ipsum dolor sit amet, consectetuer
           adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum
@@ -82,6 +82,8 @@ education:
           sociis natoque penatibus et magnis dis parturient montes, nascetur
           ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu,
           pretium quis, sem.
+            - Bullet point
+            - Bullet point
         
 experiences:
     title: Experiences
