@@ -106,23 +106,7 @@ experiences:
 certifications:
       title: Certifications
       list:
-        - name: Introduction to Python
-          start: 2023
-          end: 2023
-          organization: Codefinity
-          credentialid: 8c9fd595-6aa3-4ef2-8d73-f13fd66bc610
-          credentialurl: 
-          credentialname:
-          details: |
-            Python is an interpreted high-level general-purpose programming language,
-            which means it can be used in different spheres of human activity 
-            (unlike HTML, CSS, and JavaScript, which are mainly used in web development).
-            Python can be used in software developing, data science, back-end development, etc.
-            In this course, you will meet with the main aspects of Python and by the end of this 
-            course, you will be able to write your functions!
-       
-        
-        - name: Full-Stack Python Developer
+       - name: Full-Stack Python Developer
           start: 2023
           end:
           organization: Workearly
@@ -148,7 +132,23 @@ certifications:
               - Machine Learning & Big Data for Healthcare
         
         
-        - name: ESB CERTIFICATE IN ESOL INTERNATIONAL ALL MODES - (B2)
+        - name: Introduction to Python
+          start: 2023
+          end: 2023
+          organization: Codefinity
+          credentialid: 8c9fd595-6aa3-4ef2-8d73-f13fd66bc610
+          credentialurl: 
+          credentialname:
+          details: |
+            Python is an interpreted high-level general-purpose programming language,
+            which means it can be used in different spheres of human activity 
+            (unlike HTML, CSS, and JavaScript, which are mainly used in web development).
+            Python can be used in software developing, data science, back-end development, etc.
+            In this course, you will meet with the main aspects of Python and by the end of this 
+            course, you will be able to write your functions!
+        
+        
+        - name: ESB CERTIFICATE - (B2)
           start: 2010
           end: 2012
           organization: ESB
