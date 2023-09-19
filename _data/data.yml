@@ -106,43 +106,45 @@ experiences:
 certifications:
       title: Certifications
       list:
-        - name: CV Builder
-          start: 2020
-          end: 2021
-          organization: Microsoft
-          credentialid: 111-222
-          credentialurl: www.google.com
-          credentialname: Google
+        - name: Full-Stack Python Developer
+          start: 2023
+          end: 
+          organization: Workearly
+          credentialid: 
+          credentialurl: https://workearly.datascienceschool.gr/full-stack-python-developer-bootcamp 
+          credentialname:
           details: |
-            Details about cert. Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit.
-            Nullam eget orci purus. Nullam ultrices neque nibh.
-            Aenean fermentum, felis vulputate suscipit accumsan,
-            sem enim bibendum augue, sed convallis arcu lacus at dui.
-            Pellentesque et nibh suscipit, vestibulum turpis eu, semper tortor.
-            Praesent felis nibh, eleifend id eleifend id, dictum id enim.
-            Praesent venenatis erat non augue suscipit consectetur.
+            Mandatory torso :
+              - Introduction to Data Science
+              - Datawarehouse / ETL
+              - Health Statistics & Databases
+              - Data Analytics
+              - SQL
+              - Advanced Excel
+              - Power Bi
+              - Tableau
 
-            Second paragraph. Sed eleifend enim ante, vitae efficitur purus
-            fringilla vel. Ut euismod, sem sed vulputate venenatis,
-            justo diam viverra velit, sed rhoncus leo leo eu justo.
-            Suspendisse placerat risus ante, sed porta nisi blandit at.
-        - name: Git learning
-          start: 2019
-          end:
-          organization: Microsoft
-          credentialid: 111-222
-          credentialurl: www.github.com
-          credentialname: Github
+              Part 2 :
+              - Python for Healthcare Data Analysis
+              - Bio Python
+              - Bioinformatics
+              - R
+              - Machine Learning & Big Data for Healthcare
+
+        - name: Introduction to Python
+          start: 2023
+          end: 2023
+          organization: Codefinity
+          credentialid: 8c9fd595-6aa3-4ef2-8d73-f13fd66bc610
+          credentialurl: https://codefinity.com/
+          credentialname:
           details: |
-            Older certification. Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit.
-            Nullam eget orci purus. Nullam ultrices neque nibh.
-            Aenean fermentum, felis vulputate suscipit accumsan,
-            sem enim bibendum augue, sed convallis arcu lacus at dui.
-            Pellentesque et nibh suscipit, vestibulum turpis eu, semper tortor.
-            Praesent felis nibh, eleifend id eleifend id, dictum id enim.
-            Praesent venenatis erat non augue suscipit consectetur.
+            Python is an interpreted high-level general-purpose programming language,
+            which means it can be used in different spheres of human activity 
+            (unlike HTML, CSS, and JavaScript, which are mainly used in web development).
+            Python can be used in software developing, data science, back-end development, etc.
+            In this course, you will meet with the main aspects of Python and by the end of this 
+            course, you will be able to write your functions!
         
             
 skills:
