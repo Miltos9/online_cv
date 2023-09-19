@@ -132,29 +132,22 @@ certifications:
           end: 2023
           organization: Codefinity
           credentialid: 8c9fd595-6aa3-4ef2-8d73-f13fd66bc610
-          credentialurl: https://www.linkedin.com/posts/georgios-miltos_digital-certificate-activity-7109520867637796864-pmZh?utm_source=share&utm_medium=member_desktop
+          credentialurl: 
           credentialname:
           details: |
-            Details about cert. Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit.
-            Nullam eget orci purus. Nullam ultrices neque nibh.
-            Aenean fermentum, felis vulputate suscipit accumsan,
-            sem enim bibendum augue, sed convallis arcu lacus at dui.
-            Pellentesque et nibh suscipit, vestibulum turpis eu, semper tortor.
-            Praesent felis nibh, eleifend id eleifend id, dictum id enim.
-            Praesent venenatis erat non augue suscipit consectetur.
-
-            Second paragraph. Sed eleifend enim ante, vitae efficitur purus
-            fringilla vel. Ut euismod, sem sed vulputate venenatis,
-            justo diam viverra velit, sed rhoncus leo leo eu justo.
-            Suspendisse placerat risus ante, sed porta nisi blandit at.
-        - name: Git learning
-          start: 2019
+            Python is an interpreted high-level general-purpose programming language,
+            which means it can be used in different spheres of human activity 
+            (unlike HTML, CSS, and JavaScript, which are mainly used in web development).
+            Python can be used in software developing, data science, back-end development, etc.
+            In this course, you will meet with the main aspects of Python and by the end of this 
+            course, you will be able to write your functions!
+        - name: Full-Stack Python Developer
+          start: 2023
           end:
-          organization: Microsoft
-          credentialid: 111-222
-          credentialurl: www.github.com
-          credentialname: Github
+          organization: Workearly
+          credentialid:
+          credentialurl:
+          credentialname:
           details: |
             Older certification. Lorem ipsum dolor sit amet, consectetur
             adipiscing elit.
@@ -164,6 +157,8 @@ certifications:
             Pellentesque et nibh suscipit, vestibulum turpis eu, semper tortor.
             Praesent felis nibh, eleifend id eleifend id, dictum id enim.
             Praesent venenatis erat non augue suscipit consectetur.
+              - Bullet point
+              - Bullet point
 
 projects:
     title: Projects
