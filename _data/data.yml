@@ -50,32 +50,38 @@ sidebar:
 career-profile:
     title: Career Profile
     summary: |
-      After completing my education, my initial objective is to pursue a career 
-      as a programmer and progress within this field. This involves not only 
-      mastering new programming languages but also acquiring the essential 
-      experience necessary for professional growth.
+      career-profile:
+    title: Career Profile
+    summary: |
+      Summarise your career here lorem ipsum dolor sit amet, consectetuer
+      adipiscing elit. You can [download this free resume/CV template here]().
+      Aenean commodo ligula eget dolor aenean massa. Cum sociis natoque
+      penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+      Donec quam felis, ultricies nec, pellentesque eu.
+      Second paragraph if required.
 education:
     title: Education
     info:
-      - degree: bachelor Degree
-        university: Ionian University, Department of Computer Science.
-        time:  - 2024
+      - degree: MSc in Computer Science
+        university: University of London
+        time: 2011 - 2012
         details: |
-          Upon the completion of your studies and the acquisition of a degree 
-          from the Department of Computer Science, a wide array of professional 
-          opportunities opens up before you. You have the potential to work in  
-          both the private and public sectors, holding various IT-related  
-          positions. Illustratively, you can engage in activities such as research, 
-          design, analysis, implementation, installation, supervision, operation,  
-          assessment, conducting feasibility studies, and certification in fields 
-          (indicatively) related to computer software, information technology,  
-          internet applications, systems and graphic applications, image and speech  
-          processing, networks, and more. Furthermore, you also have the option  
-          to work in education (primary, secondary, technical, and vocational,  
-          both public and private), engage in academic research, and provide IT, 
-          networking, organizational, and technical services to any public or  
-          private entity in various sectors (e.g., medical, pharmaceutical,  
-          insurance, media, transportation, shipping, tourism, etc.).
+          Describe your study here lorem ipsum dolor sit amet, consectetuer
+          adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum
+          sociis natoque penatibus et magnis dis parturient montes, nascetur
+          ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu,
+          pretium quis, sem.
+            - Bullet point
+            - Bullet point
+      - degree: BSc in Applied Mathematics
+        university: Bristol University
+        time: 2007 - 2011
+        details: |
+          Describe your study here lorem ipsum dolor sit amet, consectetuer
+          adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum
+          sociis natoque penatibus et magnis dis parturient montes, nascetur
+          ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu,
+          pretium quis, sem.
             - Bullet point
             - Bullet point
         
