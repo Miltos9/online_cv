@@ -127,13 +127,13 @@ experiences:
 certifications:
       title: Certifications
       list:
-        - name: CV Builder
-          start: 2020
-          end: 2021
-          organization: Microsoft
-          credentialid: 111-222
-          credentialurl: www.google.com
-          credentialname: Google
+        - name: Introduction to Python
+          start: 2023
+          end: 2023
+          organization: Codefinity
+          credentialid: 8c9fd595-6aa3-4ef2-8d73-f13fd66bc610
+          credentialurl: https://www.linkedin.com/posts/georgios-miltos_digital-certificate-activity-7109520867637796864-pmZh?utm_source=share&utm_medium=member_desktop
+          credentialname:
           details: |
             Details about cert. Lorem ipsum dolor sit amet, consectetur
             adipiscing elit.
