@@ -53,12 +53,10 @@ career-profile:
       career-profile:
     title: Career Profile
     summary: |
-      Summarise your career here lorem ipsum dolor sit amet, consectetuer
-      adipiscing elit. You can [download this free resume/CV template here]().
-      Aenean commodo ligula eget dolor aenean massa. Cum sociis natoque
-      penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-      Donec quam felis, ultricies nec, pellentesque eu.
-      Second paragraph if required.
+      After completing my education, my initial objective is to pursue a career 
+      as a programmer and progress within this field. This involves not only 
+      mastering new programming languages but also acquiring the essential 
+      experience necessary for professional growth.
 education:
     title: Education
     info:
