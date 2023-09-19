@@ -149,17 +149,22 @@ certifications:
           credentialurl:
           credentialname:
           details: |
-            Older certification. Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit.
-            Nullam eget orci purus. Nullam ultrices neque nibh.
-            Aenean fermentum, felis vulputate suscipit accumsan,
-            sem enim bibendum augue, sed convallis arcu lacus at dui.
-            Pellentesque et nibh suscipit, vestibulum turpis eu, semper tortor.
-            Praesent felis nibh, eleifend id eleifend id, dictum id enim.
-            Praesent venenatis erat non augue suscipit consectetur.
-              - Bullet point
-              - Bullet point
+            Mandatory torso :
+              - Introduction to Data Science
+              - Datawarehouse / ETL
+              - Health Statistics & Databases
+              - Data Analytics
+              - SQL
+              - Advanced Excel
+              - Power Bi
+              - Tableau
 
+              Part 2 :
+              - Python for Healthcare Data Analysis
+              - Bio Python
+              - Bioinformatics
+              - R
+              - Machine Learning & Big Data for Healthcare
 projects:
     title: Projects
     intro: >
