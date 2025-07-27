@@ -74,8 +74,14 @@ education:
 experiences:
     title: Experiences
     info:
-      - role:  IT Support
-        time: 2023 - Present
+      - role:  Digital Solutions Specialist
+        time: 2025 - Present
+        company: Kosmocar S.A. , Athens
+        details: |
+          • Assisted in rebuild and optimize data structures.
+          
+      - role:  Jr Data Engineer & IT Support
+        time: 2023 - 2025
         company: Fragou Lawfirm, Athens
         details: |
           • Collaborated with Department Supervisors to identify and prioritize IT problems
