@@ -40,7 +40,7 @@ sidebar:
     interests:
       title: Interests
       info:
-        - item: Databases 
+        - item: Databases
           link:
 
         - item: Sports
@@ -74,14 +74,8 @@ education:
 experiences:
     title: Experiences
     info:
-      - role:  Digital Solutions Specialist
-        time: 2025 - Current
-        company: Kosmocar S.A. , Athens
-        details: |
-          • Assisted in rebuild and optimize data structures.
-          
-      - role:  Jr Data Engineer & IT Support
-        time: 2023 - 2025
+      - role:  IT Support
+        time: 2023 - Present
         company: Fragou Lawfirm, Athens
         details: |
           • Collaborated with Department Supervisors to identify and prioritize IT problems
@@ -127,34 +121,27 @@ certifications:
           credentialurl: 
           credentialname:
           details: |
-
-          - name: Databases - SQL
-          start: 2024
-          end: 2024
-          organization: Level Up
-          credentialid: 
-          credentialurl: 
-          credentialname:
-          details: |
+            
+        
             
 skills:
     title: Skills &amp; Proficiency
 
     toolset:
-      - name: Python
+      - name: Python & Django
         level: 60%
 
-      - name: Power Apps
-        level: 70%
+      - name: Javascript & jQuery
+        level: 50%
 
-      - name: ETL Tools
-        level: 80%
+      - name: HTML5 & CSS
+        level: 50%
 
       - name: SQL
         level: 80%
 
       - name: Photoshop
         level: 80%
-        
+
 footer: >
     Designed with <i class="fas fa-heart"></i> by <a href="http://themes.3rdwavemedia.com" target="_blank" rel="nofollow">Xiaoying Riley</a>
