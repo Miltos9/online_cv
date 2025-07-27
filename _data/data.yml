@@ -9,7 +9,7 @@ sidebar:
 
     # Profile information
     name: Georgios Miltos
-    tagline: Jr Full-stack Developer & IT Support
+    tagline: Data Engineer | Digital Solutions Specialist
     avatar: profile.png  #place a 100x100 picture inside /assets/images/ folder and provide the name of the file below
 
     # Sidebar links
@@ -25,7 +25,7 @@ sidebar:
     stack-overflow: # Number/Username, e.g. 123456/alandoe
     codewars:
     goodreads: # Number-Username, e.g. 123456-alandoe
-    pdf: https://drive.google.com/file/d/19FaoaF16FIRW-ekY8zy30BJIkahHNqV7/view?usp=sharing
+    pdf: https://drive.google.com/file/d/11uV8Bc3RccNhL2MSLroE75hzNI7ZrxOK/view?usp=sharing
 
     languages:
       title: Languages
@@ -40,7 +40,7 @@ sidebar:
     interests:
       title: Interests
       info:
-        - item: Coding 
+        - item: Databases 
           link:
 
         - item: Sports
@@ -53,10 +53,9 @@ career-profile:
       career-profile:
     title: Career Profile
     summary: |
-      My initial objective is to pursue a career 
-      as a programmer and progress within this field. This involves not only 
-      mastering new programming languages but also acquiring the essential 
-      experience necessary for professional growth.
+      I am growth-driven Data Engineer with hands-on experience in designing, building, and maintaining data solutions in a real-world business environment.
+      My background combines technical problem-solving with IT support knowledge, allowing me to bridge gaps between systems, data, and people.
+      I am constantly exploring new technologies, optimazing data stractures, and contributing to efficient decision-making through data.
 education:
     title: Education
     info:
@@ -75,8 +74,14 @@ education:
 experiences:
     title: Experiences
     info:
-      - role:  IT Support
-        time: 2023 - Present
+      - role:  Digital Solutions Specialist
+        time: 2025 - Current
+        company: Kosmocar S.A. , Athens
+        details: |
+          • Assisted in rebuild and optimize data structures.
+          
+      - role:  Jr Data Engineer & IT Support
+        time: 2023 - 2025
         company: Fragou Lawfirm, Athens
         details: |
           • Collaborated with Department Supervisors to identify and prioritize IT problems
@@ -122,27 +127,31 @@ certifications:
           credentialurl: 
           credentialname:
           details: |
-            
-        
+
+          - name: Databases - SQL
+          start: 2024
+          end: 2024
+          organization: Level Up
+          credentialid: 
+          credentialurl: 
+          credentialname:
+          details: |
             
 skills:
     title: Skills &amp; Proficiency
 
     toolset:
-      - name: Python & Django
+      - name: Python
         level: 60%
 
-      - name: Javascript & jQuery
-        level: 50%
+      - name: Power Apps
+        level: 70%
 
-      - name: HTML5 & CSS
-        level: 50%
+      - name: ETL Tools
+        level: 80%
 
       - name: SQL
         level: 80%
 
       - name: Photoshop
         level: 80%
-
-footer: >
-    Designed with <i class="fas fa-heart"></i> by <a href="http://themes.3rdwavemedia.com" target="_blank" rel="nofollow">Xiaoying Riley</a>
