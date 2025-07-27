@@ -128,25 +128,29 @@ certifications:
           credentialname:
           details: |
             
-        
+        - name: Databases - SQL
+          start: 2024
+          end: 2024
+          organization: Level Up
+          credentialid: 
+          credentialurl: 
+          credentialname:
+          details: |
             
 skills:
     title: Skills &amp; Proficiency
 
     toolset:
-      - name: Python & Django
+      - name: Python
         level: 60%
 
-      - name: Javascript & jQuery
-        level: 50%
+      - name: Power Apps
+        level: 70%
 
-      - name: HTML5 & CSS
-        level: 50%
-
-      - name: SQL
+      - name: ETL Tools
         level: 80%
 
-      - name: Photoshop
+      - name: SQL
         level: 80%
 
 footer: >
