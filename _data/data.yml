@@ -77,13 +77,13 @@ experiences:
       - role:  Digital Solutions Specialist
         time: 2025 - Present
         company: Kosmocar S.A. , Athens
-        details: |
+        details: >
            •  Assisted in rebuild and optimize data structures.
           
       - role:  Jr Data Engineer & IT Support
         time: 2023 - 2025
         company: Fragou Lawfirm, Athens
-        details: |
+        details: >
           • Collaborated with Department Supervisors to identify and prioritize IT problems
           • Participated in construction of data integration system
           • Produced reports using advanced Excel spreadsheet functions or Power BI
@@ -91,8 +91,8 @@ experiences:
             
       - role: Informatics Teacher
         time: 2021 - 2022
-        company: Axion Esti 2012 
-        details: |
+        company: Axion Esti 2012, Volos
+        details: >
           • Likened programming to learning a natural language
           • implemented innovative teaching methods with gadgets and technology products
           • Assisted students to obtain certified degrees ( Code.org , Global Kids etc.)
