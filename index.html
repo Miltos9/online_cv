@@ -35,6 +35,7 @@
     <a href="#hero" class="nav__brand">GM<span>.</span></a>
     <nav class="nav__links" id="navLinks">
       <a href="#about">About</a>
+      <a href="#achievements">Achievements</a>
       <a href="#experience">Experience</a>
       <a href="#skills">Skills</a>
       <a href="#certs">Certifications</a>
@@ -67,6 +68,7 @@
           </div>
           <ul class="hero__stats" data-reveal>
             <li><b>4+</b><span>Years in tech</span></li>
+            <li><b>1st</b><span>Hackathon win</span></li>
             <li><b>4</b><span>Certifications</span></li>
           </ul>
           <p class="hero__note" data-reveal>
@@ -74,21 +76,19 @@
             Purpose-built as a working sample — a demonstration of modern, hand-crafted web-development craftsmanship.
           </p>
         </div>
-        <div class="hero__visual" data-reveal>
+        <div class="hero__visual">
           <div class="avatar3d" id="avatar3d">
-            <canvas id="avatarCanvas" aria-label="3D portrait that morphs into SQL on scroll"></canvas>
-            <img src="assets/img/profile.jpg" alt="Georgios Miltos" class="avatar-fallback" />
+            <canvas id="avatarCanvas" aria-label="3D portrait that morphs into section-specific SQL on scroll"></canvas>
+            <img src="assets/img/profile.jpg" alt="Georgios Miltos" class="avatar-photo" id="avatarPhoto" />
+            <span class="avatar-hint" id="avatarHint"><i data-lucide="mouse-pointer-2"></i> scroll to query</span>
           </div>
-          <code class="hero__chip chip-1">SELECT * FROM data;</code>
-          <code class="hero__chip chip-2">ETL · SQL · Python</code>
-          <span class="avatar-hint" id="avatarHint"><i data-lucide="mouse-pointer-2"></i> scroll to query</span>
         </div>
       </div>
       <a href="#about" class="hero__scroll" aria-label="Scroll down"><i data-lucide="chevron-down"></i></a>
     </section>
 
     <!-- ABOUT -->
-    <section class="section" id="about">
+    <section class="section" id="about" data-sql="SELECT * FROM georgios_miltos WHERE role = 'Data Engineer';">
       <div class="section__head" data-reveal>
         <span class="section__num">01</span>
         <h2>About me</h2>
@@ -135,14 +135,33 @@
       </div>
     </section>
 
-    <!-- EXPERIENCE -->
-    <section class="section" id="experience">
+    <!-- ACHIEVEMENTS -->
+    <section class="section" id="achievements" data-sql="SELECT * FROM achievements WHERE rank = 1;">
       <div class="section__head" data-reveal>
         <span class="section__num">02</span>
+        <h2>Achievements</h2>
+      </div>
+      <div class="ach-grid">
+        <div class="glass ach ach--gold" data-reveal>
+          <div class="ach__medal"><i data-lucide="trophy"></i></div>
+          <div class="ach__body">
+            <span class="ach__rank">1st place</span>
+            <h3>Microsoft &times; UBITECH Hackathon</h3>
+            <p class="muted">First-place winner — hosted by Microsoft &amp; UBITECH.</p>
+            <span class="ach__year">2026</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section" id="experience" data-sql="SELECT * FROM experience ORDER BY start_year DESC;">
+      <div class="section__head" data-reveal>
+        <span class="section__num">03</span>
         <h2>Experience</h2>
       </div>
       <div class="timeline">
-        <article class="tl-item" data-reveal>
+        <article class="tl-item" data-reveal data-sql="SELECT * FROM companies WHERE company_name = 'Kosmocar';">
           <div class="tl-dot"></div>
           <div class="glass tl-card">
             <div class="tl-top">
@@ -151,12 +170,13 @@
             </div>
             <p class="tl-company"><i data-lucide="building-2"></i> Kosmocar S.A. · Athens</p>
             <ul>
-              <li>Rebuilding and optimizing data structures to support business operations.</li>
+              <li>Designing and optimizing Lakehouse data structures with <strong>Microsoft Fabric</strong> and <strong>Delta Lake</strong>.</li>
+              <li>Building and maintaining end-to-end data pipelines to support business operations and reporting.</li>
             </ul>
           </div>
         </article>
 
-        <article class="tl-item" data-reveal>
+        <article class="tl-item" data-reveal data-sql="SELECT * FROM companies WHERE company_name = 'Fragou Law Firm';">
           <div class="tl-dot"></div>
           <div class="glass tl-card">
             <div class="tl-top">
@@ -173,7 +193,7 @@
           </div>
         </article>
 
-        <article class="tl-item" data-reveal>
+        <article class="tl-item" data-reveal data-sql="SELECT * FROM companies WHERE company_name = 'Axion Esti 2012';">
           <div class="tl-dot"></div>
           <div class="glass tl-card">
             <div class="tl-top">
@@ -193,38 +213,27 @@
     </section>
 
     <!-- SKILLS -->
-    <section class="section" id="skills">
+    <section class="section" id="skills" data-sql="SELECT name FROM tech_stack;">
       <div class="section__head" data-reveal>
-        <span class="section__num">03</span>
-        <h2>Skills &amp; Proficiency</h2>
+        <span class="section__num">04</span>
+        <h2>Skills &amp; Stack</h2>
       </div>
       <div class="skills">
-        <div class="skills__bars">
-          <div class="skill" data-reveal data-level="80">
-            <div class="skill__top"><span>SQL</span><b>80%</b></div>
-            <div class="bar"><i></i></div>
-          </div>
-          <div class="skill" data-reveal data-level="80">
-            <div class="skill__top"><span>ETL Tools</span><b>80%</b></div>
-            <div class="bar"><i></i></div>
-          </div>
-          <div class="skill" data-reveal data-level="70">
-            <div class="skill__top"><span>Power Apps</span><b>70%</b></div>
-            <div class="bar"><i></i></div>
-          </div>
-          <div class="skill" data-reveal data-level="60">
-            <div class="skill__top"><span>Python</span><b>60%</b></div>
-            <div class="bar"><i></i></div>
-          </div>
-        </div>
-        <div class="skills__stack" data-reveal>
-          <h3>Toolbox</h3>
+        <div class="skill-group" data-reveal>
+          <h3>Core stack</h3>
           <div class="chips">
-            <span class="chip">Python</span>
+            <span class="chip chip--hot">Microsoft Fabric</span>
+            <span class="chip chip--hot">Delta Lake</span>
             <span class="chip">SQL</span>
             <span class="chip">ETL</span>
-            <span class="chip">Power BI</span>
+            <span class="chip">Python</span>
             <span class="chip">Power Apps</span>
+          </div>
+        </div>
+        <div class="skill-group" data-reveal>
+          <h3>Tools &amp; platforms</h3>
+          <div class="chips">
+            <span class="chip">Power BI</span>
             <span class="chip">SharePoint</span>
             <span class="chip">Excel</span>
             <span class="chip">Data Integration</span>
@@ -236,9 +245,9 @@
     </section>
 
     <!-- CERTIFICATIONS -->
-    <section class="section" id="certs">
+    <section class="section" id="certs" data-sql="SELECT name, organization, year FROM certifications;">
       <div class="section__head" data-reveal>
-        <span class="section__num">04</span>
+        <span class="section__num">05</span>
         <h2>Certifications</h2>
       </div>
       <div class="cert-grid">
@@ -270,7 +279,7 @@
     </section>
 
     <!-- CONTACT -->
-    <section class="section" id="contact">
+    <section class="section" id="contact" data-sql="SELECT 'Let''s build something' AS next_step;">
       <div class="contact glass" data-reveal>
         <h2>Let's build something with data.</h2>
         <p class="muted">Open to Data Engineering & data-driven roles. Reach out anytime.</p>

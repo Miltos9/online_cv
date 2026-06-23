@@ -65,15 +65,6 @@ const skillObs = new IntersectionObserver(
 );
 document.querySelectorAll(".skill").forEach((s) => skillObs.observe(s));
 
-/* ===== Subtle parallax on hero visual ===== */
-const visual = document.querySelector(".hero__visual");
-if (visual && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
-  window.addEventListener("scroll", () => {
-    const y = Math.min(window.scrollY, 600);
-    visual.style.transform = `translateY(${y * 0.08}px)`;
-  }, { passive: true });
-}
-
 /* ===== Particle network background ===== */
 (function network() {
   if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
