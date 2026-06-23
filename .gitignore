@@ -1,5 +1,7 @@
-# Cache
-_site/
-.sass-cache/
-.jekyll-metadata
-.jekyll-cache
+# Local preview helpers (not part of the site)
+.preview-server.pl
+.claude/
+
+# OS / editor
+.DS_Store
+Thumbs.db
