@@ -1,19 +1,18 @@
 /* ============================================================
-   Persistent particle avatar.
-   - At the top it IS the photo (crisp, recognizable).
-   - As you scroll, the photo dissolves into particles that
-     reassemble into the SQL query of the section in view
-     (e.g. Kosmocar -> SELECT * FROM companies WHERE ...).
-   - On desktop it stays pinned to the right and follows the page;
-     on smaller screens it lives in the hero.
-   Falls back to the static photo if WebGL / Three.js is missing
-   or the user prefers reduced motion.
+   Particle avatar.
+   - Desktop (>=1100px): pinned to the right; starts as the photo,
+     morphs into the SQL of the section in view.
+   - Mobile/tablet: the canvas snaps over each section's reserved
+     square "slot" as you reach it; the pixels scatter and
+     reassemble into that section's SQL. In the hero it is the photo.
+   Falls back to a static photo without WebGL / reduced motion.
    ============================================================ */
 (function () {
-  const wrap = document.getElementById("avatar3d");
+  const av = document.getElementById("avatar3d");
   const canvas = document.getElementById("avatarCanvas");
   const photo = document.getElementById("avatarPhoto");
   const hint = document.getElementById("avatarHint");
+  const heroAnchor = document.getElementById("heroAnchor");
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   const photoOnly = () => {
@@ -21,20 +20,17 @@
     if (photo) photo.style.opacity = "1";
     if (hint) hint.style.display = "none";
   };
-  if (!wrap || !canvas || !photo || !window.THREE || reduce) return photoOnly();
+  if (!av || !canvas || !photo || !heroAnchor || !window.THREE || reduce) return photoOnly();
 
-  const COUNT = window.innerWidth < 700 ? 5000 : 9000;
+  const mqDesktop = matchMedia("(min-width: 1100px)");
+  const COUNT = window.innerWidth < 700 ? 5200 : 9000;
   const photoPos = new Float32Array(COUNT * 3);
   const photoCol = new Float32Array(COUNT * 3);
   const cur = new Float32Array(COUNT * 3);
   const curC = new Float32Array(COUNT * 3);
-  const desP = new Float32Array(COUNT * 3);
-  const desC = new Float32Array(COUNT * 3);
-
-  let targetP = photoPos, targetC = photoCol; // current SQL target (defaults to photo)
+  let targetP = photoPos, targetC = photoCol;
   const textCache = {};
 
-  /* ---- sample the portrait into "ink" pixels ---- */
   function sampleImage(img) {
     const w = 150, h = 188;
     const c = document.createElement("canvas");
@@ -52,7 +48,6 @@
     return { pts, w, h };
   }
 
-  /* ---- word-wrap a query so it fits the panel ---- */
   function wrapLines(sql, max) {
     const words = sql.split(" ");
     const lines = []; let line = "";
@@ -64,22 +59,21 @@
     return lines;
   }
 
-  /* ---- render a SQL string to particle targets ---- */
   function buildText(sql) {
     if (textCache[sql]) return textCache[sql];
-    const w = 540, h = 460;
+    const w = 480, h = 480;
     const c = document.createElement("canvas");
     c.width = w; c.height = h;
     const x = c.getContext("2d");
-    const lines = wrapLines(sql, 17);
+    const lines = wrapLines(sql, 15);
     const longest = Math.max(...lines.map((l) => l.length));
-    const fs = Math.min(46, Math.floor((w - 40) / (longest * 0.62)));
-    const lh = fs * 1.42;
+    const fs = Math.max(20, Math.min(46, Math.floor((w - 48) / (longest * 0.62))));
+    const lh = fs * 1.5;
     x.fillStyle = "#fff";
     x.textBaseline = "top";
     x.font = `bold ${fs}px "JetBrains Mono", monospace`;
     let y = (h - lines.length * lh) / 2;
-    for (const l of lines) { x.fillText(l, 24, y); y += lh; }
+    for (const l of lines) { x.fillText(l, 26, y); y += lh; }
     const d = x.getImageData(0, 0, w, h).data;
     const pts = [];
     for (let py = 0; py < h; py += 2)
@@ -136,13 +130,18 @@
       opacity: 0.96, depthWrite: false, sizeAttenuation: true,
     });
     const points = new THREE.Points(geo, mat);
-    points.frustumCulled = false; // cloud is always near origin; avoids bounding-sphere recompute
+    points.frustumCulled = false;
     scene.add(points);
 
-    let lastW = 0;
-    const resize = () => { const s = wrap.clientWidth || 360; lastW = s; renderer.setSize(s, s, false); };
-    resize();
-    window.addEventListener("resize", resize);
+    let lastW = 0, lastH = 0;
+    function sizeTo(w, h) {
+      w = Math.round(w); h = Math.round(h);
+      if (w < 2 || h < 2 || (w === lastW && h === lastH)) return;
+      lastW = w; lastH = h;
+      renderer.setSize(w, h, false);
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+    }
 
     let mx = 0, my = 0;
     window.addEventListener("mousemove", (e) => {
@@ -150,53 +149,106 @@
       my = (e.clientY / window.innerHeight - 0.5) * 2;
     }, { passive: true });
 
-    // sections that carry a SQL query
-    const zones = [...document.querySelectorAll("[data-sql]")].map((el) => ({ el, sql: el.getAttribute("data-sql") }));
+    const heroEl = document.querySelector(".hero");
+    const zones = [...document.querySelectorAll("section[data-sql]")]
+      .map((el) => ({ el, sql: el.getAttribute("data-sql") }));
+    const slots = [...document.querySelectorAll(".sql-slot")]
+      .map((el) => ({ el, sql: el.getAttribute("data-sql") }));
 
     const ease = (t) => t * t * (3 - 2 * t);
-    let t = 0;
+    let t = 0, mode = null, anchorEl = null;
 
-    function pickTarget() {
+    function scatter() {
+      for (let i = 0; i < COUNT * 3; i++) cur[i] = (Math.random() - 0.5) * 3.0;
+    }
+
+    function desktopTarget() {
       const mid = window.innerHeight / 2;
-      let best = null, bestD = Infinity;
+      let best = null, bd = Infinity;
       for (const z of zones) {
         const r = z.el.getBoundingClientRect();
         if (r.bottom < 0 || r.top > window.innerHeight) continue;
         const d = Math.abs((r.top + r.bottom) / 2 - mid);
-        if (d < bestD) { bestD = d; best = z; }
+        if (d < bd) { bd = d; best = z; }
       }
       if (best) { const tt = buildText(best.sql); targetP = tt.pos; targetC = tt.col; }
     }
 
-    function tick() {
-      // keep canvas resolution in sync when the panel resizes (e.g. docking)
-      const cw = wrap.clientWidth;
-      if (cw && Math.abs(cw - lastW) > 1) { lastW = cw; renderer.setSize(cw, cw, false); }
-
-      // dissolve: photo at the very top, fully particles after ~0.55 viewport
-      const d = ease(Math.min(1, Math.max(0, (window.scrollY - 0.08 * window.innerHeight) / (0.5 * window.innerHeight))));
-      pickTarget();
-
-      for (let i = 0; i < COUNT * 3; i++) {
-        let dp = photoPos[i] * (1 - d) + targetP[i] * d;
-        let dc = photoCol[i] * (1 - d) + targetC[i] * d;
-        if (!Number.isFinite(dp)) dp = photoPos[i];
-        if (!Number.isFinite(dc)) dc = photoCol[i];
-        cur[i] += (dp - cur[i]) * 0.09;
-        curC[i] += (dc - curC[i]) * 0.09;
+    function mobileAnchor() {
+      // stay on the hero photo while the hero fills the screen
+      if (window.scrollY < (heroEl ? heroEl.offsetHeight : window.innerHeight) * 0.5) {
+        return { el: heroAnchor, sql: null };
       }
-      geo.attributes.position.needsUpdate = true;
-      geo.attributes.color.needsUpdate = true;
+      const line = window.innerHeight * 0.4;
+      let best = null, bd = Infinity;
+      for (const s of slots) {
+        const r = s.el.getBoundingClientRect();
+        const c = (r.top + r.bottom) / 2;
+        const d = Math.abs(c - line);
+        if (d < bd) { bd = d; best = s; }
+      }
+      return best || { el: heroAnchor, sql: null };
+    }
+
+    function tick() {
+      const desktop = mqDesktop.matches;
+
+      if (desktop) {
+        if (mode !== "d") { mode = "d"; anchorEl = null; av.style.cssText = ""; }
+        const d = ease(Math.min(1, Math.max(0, (window.scrollY - 0.08 * window.innerHeight) / (0.5 * window.innerHeight))));
+        desktopTarget();
+        sizeTo(av.clientWidth, av.clientWidth);
+        for (let i = 0; i < COUNT * 3; i++) {
+          let dp = photoPos[i] * (1 - d) + targetP[i] * d;
+          let dc = photoCol[i] * (1 - d) + targetC[i] * d;
+          if (!Number.isFinite(dp)) dp = photoPos[i];
+          if (!Number.isFinite(dc)) dc = photoCol[i];
+          cur[i] += (dp - cur[i]) * 0.09;
+          curC[i] += (dc - curC[i]) * 0.09;
+        }
+        const lead = 1 - d;
+        points.rotation.y = (Math.sin(t) * 0.16 + mx * 0.4) * lead;
+        points.rotation.x = (Math.cos(t * 0.7) * 0.05 + my * 0.22) * lead;
+        mat.size = 0.022 + d * 0.004;
+        photo.style.opacity = String(Math.max(0, 1 - d * 1.6));
+        if (hint) hint.style.opacity = String(Math.max(0, 1 - d * 4));
+      } else {
+        if (mode !== "m") { mode = "m"; anchorEl = null; }
+        const a = mobileAnchor();
+        const r = a.el.getBoundingClientRect();
+        av.style.position = "fixed";
+        av.style.transform = "none";
+        av.style.right = "auto";
+        av.style.left = r.left + "px";
+        av.style.top = r.top + "px";
+        av.style.width = r.width + "px";
+        av.style.height = r.height + "px";
+        sizeTo(r.width, r.height);
+
+        if (a.el !== anchorEl) { anchorEl = a.el; scatter(); }
+
+        if (a.sql == null) { targetP = photoPos; targetC = photoCol; }
+        else { const tt = buildText(a.sql); targetP = tt.pos; targetC = tt.col; }
+        const isPhoto = a.sql == null;
+
+        for (let i = 0; i < COUNT * 3; i++) {
+          let dp = targetP[i], dc = targetC[i];
+          if (!Number.isFinite(dp)) dp = 0;
+          if (!Number.isFinite(dc)) dc = 0.6;
+          cur[i] += (dp - cur[i]) * 0.1;
+          curC[i] += (dc - curC[i]) * 0.1;
+        }
+        const lead = isPhoto ? 1 : 0.18;
+        points.rotation.y = Math.sin(t) * 0.12 * lead;
+        points.rotation.x = 0;
+        mat.size = isPhoto ? 0.022 : 0.02;
+        photo.style.opacity = isPhoto ? "1" : "0";
+        if (hint) hint.style.opacity = isPhoto ? "1" : "0";
+      }
 
       t += 0.01;
-      const lead = 1 - d;
-      points.rotation.y = (Math.sin(t) * 0.16 + mx * 0.4) * lead;
-      points.rotation.x = (Math.cos(t * 0.7) * 0.05 + my * 0.22) * lead;
-      mat.size = 0.022 + d * 0.004;
-
-      photo.style.opacity = String(Math.max(0, 1 - d * 1.6));
-      if (hint) hint.style.opacity = String(Math.max(0, 1 - d * 4));
-
+      geo.attributes.position.needsUpdate = true;
+      geo.attributes.color.needsUpdate = true;
       renderer.render(scene, camera);
       requestAnimationFrame(tick);
     }
