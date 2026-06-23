@@ -144,16 +144,6 @@
     resize();
     window.addEventListener("resize", resize);
 
-    // mobile/tablet: dock to a corner panel once past the hero
-    const mqMobile = matchMedia("(max-width: 1099px)");
-    const updateDock = () => {
-      if (mqMobile.matches) wrap.classList.toggle("docked", window.scrollY > window.innerHeight * 0.5);
-      else wrap.classList.remove("docked");
-    };
-    window.addEventListener("scroll", updateDock, { passive: true });
-    window.addEventListener("resize", updateDock);
-    updateDock();
-
     let mx = 0, my = 0;
     window.addEventListener("mousemove", (e) => {
       mx = (e.clientX / window.innerWidth - 0.5) * 2;

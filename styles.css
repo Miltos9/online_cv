@@ -121,9 +121,32 @@ main { width: 100%; }
   margin: 0 auto;
   padding: clamp(4rem, 9vw, 7rem) clamp(1.2rem, 5vw, 2rem) 0;
 }
-.section__head { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 2.5rem; }
+.section__head { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 1.1rem; }
 .section__num { font-family: "JetBrains Mono", monospace; color: var(--c3); font-size: 1rem; }
 .section__head h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); }
+
+/* Section "query bar" — a tasteful, readable SQL label for each section */
+.section-query {
+  display: inline-flex; align-items: flex-start; gap: 0.6rem;
+  max-width: 100%; margin-bottom: 2.4rem;
+  font-family: "JetBrains Mono", monospace; font-size: 0.82rem; line-height: 1.55;
+  background: rgba(10, 14, 30, 0.55);
+  border: 1px solid rgba(45, 212, 255, 0.22);
+  border-radius: 10px; padding: 0.6rem 0.9rem;
+  white-space: normal; word-break: normal; overflow-wrap: break-word;
+}
+.section-query > i { width: 15px; height: 15px; color: var(--c3); flex: none; margin-top: 0.18rem; }
+.section-query code { display: inline; }
+.section-query code { color: #cfe8ff; }
+.section-query .sq-k { color: #8aa2ff; font-weight: 600; }
+.section-query .sq-s { color: #7ee787; }
+.section-query .sq-n { color: #ffb86b; }
+.section-query .sq-cursor {
+  width: 7px; height: 1.05em; background: var(--c3); flex: none;
+  display: inline-block; border-radius: 1px; animation: blink 1.1s steps(1) infinite;
+}
+.section-query--center { display: flex; width: fit-content; max-width: 100%; margin: 1.6rem auto 0; }
+@keyframes blink { 50% { opacity: 0; } }
 
 .glass {
   background: var(--panel);
@@ -369,24 +392,12 @@ main { width: 100%; }
   .hero__stats { gap: 1.4rem; }
 }
 
-/* Mobile / tablet: avatar starts big (photo) then docks to a corner
-   live-query panel that morphs into each section's SQL on scroll */
+/* Mobile / tablet: avatar lives in the hero (big photo -> SQL on scroll);
+   the per-section query bars carry the SQL theme through the page */
 @media (max-width: 1099px) {
   .hero__inner { grid-template-columns: 1fr; text-align: center; }
-  .hero { padding-top: calc(8vh + min(300px, 70vw) + 1.4rem); }
-  .hero__visual { position: static; height: 0; margin: 0; }
-  .avatar3d {
-    position: fixed; z-index: 30;
-    top: 8vh; left: 50%; transform: translateX(-50%);
-    width: min(300px, 70vw);
-    transition: top 0.5s var(--ease), left 0.5s var(--ease),
-                right 0.5s var(--ease), width 0.5s var(--ease), transform 0.5s var(--ease);
-  }
-  .avatar3d.docked {
-    top: 60px; left: auto; right: 10px; transform: none;
-    width: 132px;
-  }
-  .avatar3d.docked .avatar-hint { display: none; }
+  .hero__visual { order: -1; margin: 0 auto 1.2rem; }
+  .avatar3d { position: relative; width: min(300px, 72vw); margin: 0 auto; }
 }
 
 @media (prefers-reduced-motion: reduce) {
