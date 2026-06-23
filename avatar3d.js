@@ -139,9 +139,20 @@
     points.frustumCulled = false; // cloud is always near origin; avoids bounding-sphere recompute
     scene.add(points);
 
-    const resize = () => { const s = wrap.clientWidth || 360; renderer.setSize(s, s, false); };
+    let lastW = 0;
+    const resize = () => { const s = wrap.clientWidth || 360; lastW = s; renderer.setSize(s, s, false); };
     resize();
     window.addEventListener("resize", resize);
+
+    // mobile/tablet: dock to a corner panel once past the hero
+    const mqMobile = matchMedia("(max-width: 1099px)");
+    const updateDock = () => {
+      if (mqMobile.matches) wrap.classList.toggle("docked", window.scrollY > window.innerHeight * 0.5);
+      else wrap.classList.remove("docked");
+    };
+    window.addEventListener("scroll", updateDock, { passive: true });
+    window.addEventListener("resize", updateDock);
+    updateDock();
 
     let mx = 0, my = 0;
     window.addEventListener("mousemove", (e) => {
@@ -168,6 +179,10 @@
     }
 
     function tick() {
+      // keep canvas resolution in sync when the panel resizes (e.g. docking)
+      const cw = wrap.clientWidth;
+      if (cw && Math.abs(cw - lastW) > 1) { lastW = cw; renderer.setSize(cw, cw, false); }
+
       // dissolve: photo at the very top, fully particles after ~0.55 viewport
       const d = ease(Math.min(1, Math.max(0, (window.scrollY - 0.08 * window.innerHeight) / (0.5 * window.innerHeight))));
       pickTarget();

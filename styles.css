@@ -143,16 +143,17 @@ main { width: 100%; }
   margin: 0 auto;
   padding: 7rem clamp(1.2rem, 5vw, 2rem) 3rem;
 }
-.hero::before {
-  content: "";
+/* Full-bleed hero graphic with feathered edges (no hard crop) */
+.hero-bg {
   position: absolute;
-  inset: 0;
+  top: 0; left: 0;
+  width: 100%; height: 100vh;
   z-index: -1;
-  background: url("assets/img/hero.png") center/cover no-repeat;
-  -webkit-mask-image: radial-gradient(120% 90% at 70% 30%, #000 0%, transparent 72%);
-  mask-image: radial-gradient(120% 90% at 70% 30%, #000 0%, transparent 72%);
-  opacity: 0.55;
   pointer-events: none;
+  background: url("assets/img/hero.png") center 32% / cover no-repeat;
+  -webkit-mask-image: radial-gradient(130% 95% at 58% 38%, #000 0%, rgba(0, 0, 0, 0.55) 46%, transparent 78%);
+  mask-image: radial-gradient(130% 95% at 58% 38%, #000 0%, rgba(0, 0, 0, 0.55) 46%, transparent 78%);
+  opacity: 0.5;
 }
 .hero__inner { display: grid; grid-template-columns: 1.3fr 0.9fr; gap: 3rem; align-items: center; }
 .hero__eyebrow {
@@ -359,9 +360,6 @@ main { width: 100%; }
   .hero__eyebrow, .hero__lead { margin-left: auto; margin-right: auto; }
   .hero__cta, .hero__stats { justify-content: center; }
   .hero__note { margin-left: auto; margin-right: auto; text-align: left; }
-  .hero__visual { order: -1; margin-bottom: 1rem; }
-  .avatar-ring { --size: 200px; }
-  .chip-1 { left: 0; } .chip-2 { right: 0; }
   .about__cards { grid-template-columns: 1fr; }
   .skills { grid-template-columns: 1fr; }
   .cert-grid { grid-template-columns: repeat(2, 1fr); }
@@ -369,6 +367,26 @@ main { width: 100%; }
 @media (max-width: 480px) {
   .cert-grid { grid-template-columns: 1fr; }
   .hero__stats { gap: 1.4rem; }
+}
+
+/* Mobile / tablet: avatar starts big (photo) then docks to a corner
+   live-query panel that morphs into each section's SQL on scroll */
+@media (max-width: 1099px) {
+  .hero__inner { grid-template-columns: 1fr; text-align: center; }
+  .hero { padding-top: calc(8vh + min(300px, 70vw) + 1.4rem); }
+  .hero__visual { position: static; height: 0; margin: 0; }
+  .avatar3d {
+    position: fixed; z-index: 30;
+    top: 8vh; left: 50%; transform: translateX(-50%);
+    width: min(300px, 70vw);
+    transition: top 0.5s var(--ease), left 0.5s var(--ease),
+                right 0.5s var(--ease), width 0.5s var(--ease), transform 0.5s var(--ease);
+  }
+  .avatar3d.docked {
+    top: 60px; left: auto; right: 10px; transform: none;
+    width: 132px;
+  }
+  .avatar3d.docked .avatar-hint { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
