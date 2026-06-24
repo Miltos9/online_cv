@@ -314,6 +314,16 @@ main { width: 100%; }
   font-family: "JetBrains Mono", monospace; font-size: 0.75rem; letter-spacing: 0.08em;
   text-transform: uppercase; color: #ffd874;
 }
+.ach--silver { border-color: rgba(199, 210, 225, 0.45); }
+.ach--silver::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background: radial-gradient(120% 120% at 0% 0%, rgba(199, 210, 225, 0.16), transparent 60%);
+}
+.ach--silver .ach__medal {
+  background: linear-gradient(135deg, #e8edf5, #aab4c4);
+  box-shadow: 0 8px 28px -8px rgba(170, 180, 196, 0.6);
+}
+.ach--silver .ach__rank { color: #cdd6e4; }
 .ach__body h3 { font-size: 1.2rem; margin: 0.15rem 0 0.35rem; }
 .ach__year { font-family: "JetBrains Mono", monospace; font-size: 0.78rem; color: var(--c3); display: block; margin-top: 0.6rem; }
 

@@ -43,9 +43,9 @@
     <a href="#hero" class="nav__brand">GM<span>.</span></a>
     <nav class="nav__links" id="navLinks">
       <a href="#about">About</a>
-      <a href="#achievements">Achievements</a>
-      <a href="#experience">Experience</a>
       <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#achievements">Achievements</a>
       <a href="#certs">Certifications</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -64,7 +64,7 @@
           <h1 class="hero__title" data-reveal>
             Georgios<br /><span class="grad">Miltos</span>
           </h1>
-          <p class="hero__role" data-reveal>Data Engineer<span class="sep">/</span>Digital Solutions Specialist</p>
+          <p class="hero__role" data-reveal>Digital Solutions Specialist<span class="sep">/</span>Data Engineer<span class="sep">/</span>AI Engineer</p>
           <p class="hero__lead" data-reveal>
             I design, build and maintain data solutions in real-world business
             environments — bridging the gap between systems, data and people.
@@ -100,11 +100,12 @@
       <div class="sql-slot" data-sql="SELECT * FROM georgios_miltos WHERE role = 'Data Engineer';" aria-hidden="true"></div>
       <div class="about">
         <p class="about__lead" data-reveal>
-          I'm a <strong>growth-driven Data Engineer</strong> with hands-on experience designing,
-          building and maintaining data solutions in real-world business environments. My background
-          combines technical problem-solving with IT support knowledge, letting me bridge gaps
-          between systems, data and people. I'm constantly exploring new technologies, optimizing
-          data structures and contributing to efficient, data-driven decision-making.
+          I'm a <strong>Digital Solutions Specialist and Data Engineer</strong> focused on designing,
+          automating and maintaining reliable data solutions that turn raw operational data into clear,
+          actionable insight. My work spans the full data lifecycle — from pipelines and storage to
+          reporting and intelligent automation — pairing solid engineering practices with a practical
+          understanding of how businesses actually run. I care about clean data architecture, dependable
+          processes and solutions that help teams make confident, data-driven decisions.
         </p>
         <div class="about__cards">
           <div class="glass info-card" data-reveal>
@@ -124,7 +125,7 @@
             <h3 style="margin-top:1.2rem">Interests</h3>
             <div class="chips">
               <span class="chip">Databases</span>
-              <span class="chip">Sports</span>
+              <span class="chip">AI &amp; Robotics</span>
             </div>
           </div>
           <div class="glass info-card" data-reveal>
@@ -134,27 +135,64 @@
               <li><span>Citizenship</span><b>Greek</b></li>
               <li><span>Email</span><b><a href="mailto:giorgosmiltos@gmail.com">giorgosmiltos@gmail.com</a></b></li>
               <li><span>Phone</span><b>+30 698 380 2783</b></li>
+              <li><span>Military Service</span><b>Completed</b></li>
+              <li><span>Driving License</span><b>Car &amp; Motorcycle</b></li>
+              <li><span>Availability</span><b>Open to travel</b></li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ACHIEVEMENTS -->
-    <section class="section" id="achievements" data-sql="SELECT * FROM achievements WHERE rank = 1;">
+    <!-- SKILLS -->
+    <section class="section" id="skills" data-sql="SELECT name FROM tech_stack;">
       <div class="section__head" data-reveal>
         <span class="section__num">02</span>
-        <h2>Achievements</h2>
+        <h2>Skills &amp; Stack</h2>
       </div>
-      <div class="sql-slot" data-sql="SELECT * FROM achievements WHERE rank = 1;" aria-hidden="true"></div>
-      <div class="ach-grid">
-        <div class="glass ach ach--gold" data-reveal>
-          <div class="ach__medal"><i data-lucide="trophy"></i></div>
-          <div class="ach__body">
-            <span class="ach__rank">1st place</span>
-            <h3>Microsoft &times; UBITECH Hackathon</h3>
-            <p class="muted">First-place winner — hosted by Microsoft &amp; UBITECH.</p>
-            <span class="ach__year">2026</span>
+      <div class="sql-slot" data-sql="SELECT name FROM tech_stack;" aria-hidden="true"></div>
+      <div class="skills">
+        <div class="skill-group" data-reveal>
+          <h3>Programming Languages</h3>
+          <div class="chips">
+            <span class="chip chip--hot">Python</span>
+            <span class="chip chip--hot">PySpark</span>
+          </div>
+        </div>
+        <div class="skill-group" data-reveal>
+          <h3>Databases &amp; Storage</h3>
+          <div class="chips">
+            <span class="chip">Microsoft SQL Server</span>
+            <span class="chip">MySQL</span>
+            <span class="chip chip--hot">Delta Lake</span>
+          </div>
+        </div>
+        <div class="skill-group" data-reveal>
+          <h3>Libraries</h3>
+          <div class="chips">
+            <span class="chip">NumPy</span>
+            <span class="chip">Pandas</span>
+            <span class="chip">Matplotlib</span>
+            <span class="chip">Seaborn</span>
+            <span class="chip">Plotly</span>
+          </div>
+        </div>
+        <div class="skill-group" data-reveal>
+          <h3>Industry Tools &amp; Cloud</h3>
+          <div class="chips">
+            <span class="chip">Talend</span>
+            <span class="chip">Power Automate</span>
+            <span class="chip">Power BI</span>
+            <span class="chip chip--hot">Microsoft Fabric</span>
+            <span class="chip">Microsoft Azure</span>
+            <span class="chip">Microsoft Office 365</span>
+          </div>
+        </div>
+        <div class="skill-group" data-reveal>
+          <h3>Version Control &amp; DevOps</h3>
+          <div class="chips">
+            <span class="chip">Git</span>
+            <span class="chip">GitHub</span>
           </div>
         </div>
       </div>
@@ -177,8 +215,9 @@
             </div>
             <p class="tl-company"><i data-lucide="building-2"></i> Kosmocar S.A. · Athens</p>
             <ul>
-              <li>Designing and optimizing Lakehouse data structures with <strong>Microsoft Fabric</strong> and <strong>Delta Lake</strong>.</li>
-              <li>Building and maintaining end-to-end data pipelines to support business operations and reporting.</li>
+              <li>Design and automate end-to-end data pipelines on <strong>Microsoft SQL Server</strong> and <strong>Microsoft Fabric</strong> (PySpark), processing large-scale operational data into structured <strong>Delta Lake</strong> tables and SQL views.</li>
+              <li>Build automated multi-channel notification systems (email, Viber/SMS) integrated with scheduled SQL Server Agent jobs and external partner systems.</li>
+              <li>Develop SQL-based business-logic automation and interactive Power BI dashboards to support data-driven decision-making across the organization.</li>
             </ul>
           </div>
         </article>
@@ -204,49 +243,42 @@
           <div class="tl-dot"></div>
           <div class="glass tl-card">
             <div class="tl-top">
-              <h3>Informatics Teacher</h3>
+              <h3>Teacher of Computer Science &amp; Robotics</h3>
               <span class="tl-time">2021 — 2022</span>
             </div>
             <p class="tl-company"><i data-lucide="building-2"></i> Axion Esti 2012 · Volos</p>
             <ul>
-              <li>Likened programming to learning a natural language to make it approachable.</li>
-              <li>Implemented innovative teaching methods with gadgets and tech products.</li>
-              <li>Guided students to certified degrees (Code.org, Global Kids, etc.).</li>
-              <li>Managed the Axion team in several student competitions.</li>
+              <li>Taught Computer Science and Robotics and mentored student competition teams.</li>
             </ul>
           </div>
         </article>
       </div>
     </section>
 
-    <!-- SKILLS -->
-    <section class="section" id="skills" data-sql="SELECT name FROM tech_stack;">
+    <!-- ACHIEVEMENTS -->
+    <section class="section" id="achievements" data-sql="SELECT * FROM achievements ORDER BY rank ASC;">
       <div class="section__head" data-reveal>
         <span class="section__num">04</span>
-        <h2>Skills &amp; Stack</h2>
+        <h2>Achievements &amp; Honors</h2>
       </div>
-      <div class="sql-slot" data-sql="SELECT name FROM tech_stack;" aria-hidden="true"></div>
-      <div class="skills">
-        <div class="skill-group" data-reveal>
-          <h3>Core stack</h3>
-          <div class="chips">
-            <span class="chip chip--hot">Microsoft Fabric</span>
-            <span class="chip chip--hot">Delta Lake</span>
-            <span class="chip">SQL</span>
-            <span class="chip">ETL</span>
-            <span class="chip">Python</span>
-            <span class="chip">Power Apps</span>
+      <div class="sql-slot" data-sql="SELECT * FROM achievements ORDER BY rank ASC;" aria-hidden="true"></div>
+      <div class="ach-grid">
+        <div class="glass ach ach--gold" data-reveal>
+          <div class="ach__medal"><i data-lucide="trophy"></i></div>
+          <div class="ach__body">
+            <span class="ach__rank">1st place</span>
+            <h3>Microsoft &times; UBITECH Hackathon</h3>
+            <p class="muted">First-place winner — hosted by Microsoft &amp; UBITECH.</p>
+            <span class="ach__year">2026</span>
           </div>
         </div>
-        <div class="skill-group" data-reveal>
-          <h3>Tools &amp; platforms</h3>
-          <div class="chips">
-            <span class="chip">Power BI</span>
-            <span class="chip">SharePoint</span>
-            <span class="chip">Excel</span>
-            <span class="chip">Data Integration</span>
-            <span class="chip">Automation</span>
-            <span class="chip">Databases</span>
+        <div class="glass ach ach--silver" data-reveal>
+          <div class="ach__medal"><i data-lucide="medal"></i></div>
+          <div class="ach__body">
+            <span class="ach__rank">2nd place</span>
+            <h3>World Robot Olympiad Hellas</h3>
+            <p class="muted">Team Manager — Axion Team.</p>
+            <span class="ach__year">2021</span>
           </div>
         </div>
       </div>
@@ -266,12 +298,6 @@
           <p class="muted">Workearly</p>
           <span class="cert__year">2023 — 2024</span>
         </a>
-        <a class="glass cert" data-reveal href="https://codefinity.com/" target="_blank" rel="noopener">
-          <i data-lucide="award"></i>
-          <h3>Introduction to Python</h3>
-          <p class="muted">Codefinity</p>
-          <span class="cert__year">2023</span>
-        </a>
         <div class="glass cert" data-reveal>
           <i data-lucide="award"></i>
           <h3>Power BI</h3>
@@ -280,7 +306,7 @@
         </div>
         <div class="glass cert" data-reveal>
           <i data-lucide="award"></i>
-          <h3>Databases — SQL</h3>
+          <h3>Databases &amp; SQL</h3>
           <p class="muted">Level Up</p>
           <span class="cert__year">2024</span>
         </div>
